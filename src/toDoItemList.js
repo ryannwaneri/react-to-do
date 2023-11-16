@@ -5,13 +5,14 @@ const ToDoItemList = () => {
     return(
         <>
             <div className="to-do-list-header">
-                <p>Done</p>
-                <p>To-do description</p>
-                <p>Time completed</p>
+                <p className="to-do-list-header-done">Done</p>
+                <p className="to-do-list-header-description">To-do description</p>
+                <p className="to-do-list-header-time">Time completed</p>
+                <div className="to-do-list-header-delete"></div>
             </div>
             <div className="to-do-list">
                {Item.items.map((item) => (
-                <ToDoItem item={item}/>
+                <ToDoItem item={item} key={item.id}/>
                ))}
             </div>
         </>

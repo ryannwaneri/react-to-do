@@ -1,0 +1,188 @@
+/* General css syles */
+:root{
+    --head-font : 'Vina Sans', sans-serif;
+}
+
+p{
+    font-family : "Cantarell",sans-serif;
+    color: rgb(117, 117, 117);
+}
+
+body{
+    margin: 0;
+}
+
+/* Header section styles */
+
+header{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(209, 231, 228);
+}
+
+.logo p{
+    font-family: var(--head-font);
+    font-size: 40px;
+    margin: 0px;
+    margin-left: 12px;
+    color: rgb(0,121,107);
+    padding-bottom: 5px;
+}
+
+.logo{
+    flex: 1;
+}
+
+.percentage-done{
+    display: flex;
+    align-items: center;
+}
+
+.percentage-done-label{
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.percentage-done-text{
+    padding: 9px 28px;
+    background-color: rgba(178,223,219,1);
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 10px;
+    color: white;
+    font-family: var(--head-font);
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Add new item styles */
+
+.add-new-item{
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+}
+
+.add-new-item-header{
+    font-family: var(--head-font);
+    font-size: 40px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.add-new-item-entry-box{
+    background-color: rgba(134,191,160,1);
+    padding-top: 70px;
+    padding-bottom: 70px;
+    flex: 1;
+    margin-left: 150px;
+    margin-right: 150px;
+    display: flex;
+    border-radius: 5px;
+}
+
+.add-new-item-description{
+    border: none;
+    height: 40px;
+    flex: 1;
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-left: 50px;
+    padding-left: 20px;
+
+}
+
+.add-new-item-description:focus{
+    outline: 2px solid green;
+}
+
+.add-new-item-description::placeholder{
+    opacity: 0.3;
+}
+
+.add-new-item-button{
+    font-family: var(--head-font);
+    font-size: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: rgba(70,158,92,1);
+    letter-spacing: 1px;
+    margin-right: 50px;
+    transition: 0.1s opacity;
+}
+
+.add-new-item-button:active{
+    opacity: 0.7;
+}
+
+/* to-do list styles */
+
+.to-do-list-header{
+    display: flex;
+    background-color: rgba(211,252,229,255);
+    margin-top: 30px;
+}
+
+.to-do-list-header p{
+    font-family: var(--head-font);
+    font-size: 20px;
+    text-align: center;
+}
+
+.to-do-list-header-done{
+    width: 70px;
+}
+
+.to-do-list-header-description{
+    flex: 1;
+}
+
+.to-do-list-header-time{
+    width: 170px;
+}
+
+.to-do-list-header-delete{
+    width: 50px;
+}
+
+.to-do-item{
+    display: flex;
+    align-items: center;
+}
+
+.to-do-item p{
+    text-align: center;
+}
+
+.to-do-item-done{
+    width: 70px;
+    display: flex;
+    justify-content: center;
+}
+
+.to-do-item-description{
+    flex: 1;
+}
+
+.to-do-item-time{
+    width: 170px;
+    color: rgb(182, 182, 182);
+}
+
+.to-do-item-delete{
+    width: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.to-do-item-delete img{
+    width: 20px;
+}

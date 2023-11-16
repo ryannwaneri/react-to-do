@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./header";
 import AddNewItem from "./addNewItem";
 import ToDoItemList from "./toDoItemList";
+import './App.css';
 
 const App = () => {
     return(
