@@ -1,7 +1,9 @@
-import Item from './item';
+import { useContext } from 'react';
+import { ToDoListContext } from './App';
 import ToDoItem from './toDoItem';
 
 const ToDoItemList = () => {
+    const {ToDoList,setToDoItemList} = useContext(ToDoListContext);
     return(
         <>
             <div className="to-do-list-header">
@@ -11,9 +13,11 @@ const ToDoItemList = () => {
                 <div className="to-do-list-header-delete"></div>
             </div>
             <div className="to-do-list">
-               {Item.items.map((item) => (
-                <ToDoItem item={item} key={item.id}/>
-               ))}
+               {
+                    ToDoList.map((item,index) => (
+                        <ToDoItem item={item} key={index} itemKey={index}/>
+                    ))
+               }
             </div>
         </>
     )

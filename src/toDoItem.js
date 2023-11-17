@@ -1,23 +1,47 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ToDoListContext,calculatePercentage } from "./App";
 import deleteIcon from "./delete.svg"
 
-let ToDoItem = ({item}) => {
+let ToDoItem = ({item,itemKey}) => {
     const [checked,setChecked] = useState(false);
+    const [timeCompleted,setTimeCompleted] = useState(item.time);
+    const {ToDoList,setToDoList,setPercentageDone} = useContext(ToDoListContext);
+
+    const toggleTask = () => {
+        if(checked===false){
+            setChecked(true)
+            item.done = true;
+            item.time = new Date().toLocaleTimeString();
+        }else{
+            setChecked(false)
+            item.done = false;
+            item.time = "----";
+        }
+        setTimeCompleted(item.time);
+        calculatePercentage(ToDoList,setPercentageDone)
+    }
+
+    const deleteTask = () => {
+        const newArray = ToDoList.slice();
+        newArray.splice(itemKey,1);
+        setToDoList(newArray);
+        calculatePercentage(ToDoList,setPercentageDone)
+    }
     return(
         <div className="to-do-item">
             <div className="to-do-item-done">
                 <input 
                     type="checkbox" 
-                    onChange={() => checked === false ? setChecked(true) : setChecked(false)} 
+                    onChange={()=>{toggleTask()}} 
                 />
             </div>
 
             <p className="to-do-item-description">{item.description}</p>
 
-            <p className="to-do-item-time">{item.time}</p>
+            <p className="to-do-item-time">{timeCompleted}</p>
 
             <div  className="to-do-item-delete">
-                <img src={deleteIcon} alt="delete item" />
+                <img src={deleteIcon} alt="delete item" onClick={()=>{deleteTask()}}/>
             </div>
         </div>
     )
