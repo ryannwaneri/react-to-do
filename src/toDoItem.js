@@ -26,13 +26,16 @@ let ToDoItem = ({item,itemKey}) => {
         newArray.splice(itemKey,1);
         setToDoList(newArray);
         calculatePercentage(ToDoList,setPercentageDone)
+        setTimeCompleted("----");
+        setChecked(false)
     }
     return(
         <div className="to-do-item">
             <div className="to-do-item-done">
                 <input 
                     type="checkbox" 
-                    onChange={()=>{toggleTask()}} 
+                    onChange={()=>{toggleTask()}}
+                    checked={checked} 
                 />
             </div>
 
