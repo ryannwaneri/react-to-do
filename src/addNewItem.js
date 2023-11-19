@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { ToDoListContext } from "./App";
 import Item from "./item";
 
@@ -12,6 +12,12 @@ const AddNewItem = () => {
         newArray.push(item);
         setToDoList(newArray);
     }
+
+    const handleKeyDown = (e) => {
+        if(e.key==="Enter"){
+            addToDoItem(new Item(ItemDescription,false,"----"))
+        }
+    }
     return(
         <>
             <p className="add-new-item-header">Add new to-do list item</p>
@@ -21,6 +27,7 @@ const AddNewItem = () => {
                     placeholder="ADD TO-DO DESCRIPTION"
                     value={ItemDescription}
                     onChange={(e)=>{setItemDescription(e.target.value)}}
+                    onKeyDown={handleKeyDown}
                 />
                 <button 
                     className="add-new-item-button" 

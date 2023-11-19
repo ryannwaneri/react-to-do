@@ -16,7 +16,7 @@ const calculatePercentage = (ToDoList,setPercentageDone) => {
         if (item.done===true) {numberDone++}
     })
 
-    let result = ((numberDone/newArray.length)*100);
+    let result = ((numberDone/newArray.length)*100).toFixed(2);
 
     if(result>0){
         setPercentageDone(result.toString());

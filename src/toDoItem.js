@@ -26,8 +26,9 @@ let ToDoItem = ({item,itemKey}) => {
         newArray.splice(itemKey,1);
         setToDoList(newArray);
         calculatePercentage(ToDoList,setPercentageDone)
-        setTimeCompleted("----");
+        setTimeCompleted(item.time);
         setChecked(false)
+        console.log(ToDoList)
     }
     return(
         <div className="to-do-item">
@@ -35,13 +36,13 @@ let ToDoItem = ({item,itemKey}) => {
                 <input 
                     type="checkbox" 
                     onChange={()=>{toggleTask()}}
-                    checked={checked} 
+                    checked={item.done} 
                 />
             </div>
 
             <p className="to-do-item-description">{item.description}</p>
 
-            <p className="to-do-item-time">{timeCompleted}</p>
+            <p className="to-do-item-time">{item.time}</p>
 
             <div  className="to-do-item-delete">
                 <img src={deleteIcon} alt="delete item" onClick={()=>{deleteTask()}}/>
